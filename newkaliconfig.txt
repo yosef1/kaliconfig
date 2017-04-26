@@ -1,0 +1,151 @@
+apt-get update
+apt-get dist-upgrade
+
+Double-check /etc/apt/sources.list, it should have the following:
+
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+# For source package access, uncomment the following line
+# deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+
+add non-root user (useradd -m "USER" -G sudo -s /bin/bash) and passwd
+
+firefox -P - Profiles - testing and research
+Tweak Tool - Dash to Dock at bottom
+Firefox addons for testing profile - web developer, hackbar
+Firefox - default search engine, remove bookmarks
+Sublime Text, and add license - use dpkg with .deb file to launch sublime with subl
+
+
+apt-get install libreoffice screen synaptic gedit flashplugin-nonfree htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev
+
+
+#Needs to be fixed
+apt-get install icedtea-plugin and configure plugin in about:addons
+
+Download and install updated firefox version
+	Use alacarte to add it as a shortcut to System Services
+	e.g. /root/Tools/firefox/firefox
+
+#Enable bash colors
+sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
+Nessus setup
+
+Use Alacarte to add "enable sound" as system service:
+	systemctl --user enable pulseaudio
+
+
+#If necessary
+Please install the latest packages            
+ │ (postgresql-9.6 and postgresql-client-9.6) and upgrade the existing         
+ │ clusters with pg_upgradecluster (see manpage).      
+
+Check Metasploit works and build database
+	service postgresql start
+
+	msfdb init
+	msfconsole
+	msf> db_status
+
+	exit, then
+	#hmm, will have to fix at some point
+	update-rc.d postgresql start
+	update-rc.d metasploit start
+
+
+Burp Suite
+	Log in to Pro site - https://portswigger.net/users/YourAccount
+	Download Pro version of Burp Suite
+	Download and save license key
+	java -Xmx1024M -jar burpsuite_pro_v1.7.16.jar  &
+	Download and configure pre-1.7 version of Burp - for vanilla web-testing
+	Download and configure Jython-standalone and JRuby
+	Configure Addons
+	Get certificate from http://burp and add to FF profiles
+	Remember Settings
+	Shortcuts
+	Font settings
+
+
+Set up EyeWitness
+	git clone https://github.com/ChrisTruncer/EyeWitness.git
+	cd setup
+	./setup.sh
+
+Set up masscan
+	git clone https://github.com/robertdavidgraham/masscan.git
+	cd masscan
+	make
+
+
+Download Password lists
+	yosefkerzner.com/scripts/Wordlists
+	https://hashes.org/crackers.php
+
+
+Clone Seclists repository
+	git clone https://github.com/danielmiessler/SecLists.git
+
+#https://github.com/adamcaudill/yawast
+Set up and install YAWAST (useful for SSL testing)
+	gem install yawast
+
+#In Kali 2016.2 SMBExec install fails due to lack of esedbtools
+Set up SMBExec
+	git clone https://github.com/pentestgeek/smbexec.git
+
+Set up Responder (SpiderLabs version)
+	git clone https://github.com/SpiderLabs/Responder.git
+
+Set up NoSQLMap
+	git clone https://github.com/tcstool/NoSQLMap.git
+
+Set up mimikatz
+	git clone https://github.com/gentilkiwi/mimikatz.git
+
+Run Social Engineering Toolkit to agree to Terms and Conditions
+
+Set up wifite2
+	git clone https://github.com/derv82/wifite2.git
+
+Set up Powersploit
+	git clone https://github.com/PowerShellMafia/PowerSploit.git
+	wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py
+	wget https://raw.githubusercontent.com/obscuresec/random/master/StartListener.py
+
+Set up Veil-Framework
+	git clone https://github.com/Veil-Framework/Veil-Evasion.git
+	sh Veil-Evasion/setup/setup.sh -s
+
+
+
+Download and dpkg -i Virtualbox
+	#Currently does not work in Kali 2016.2
+	apt-get install linux-headers-$(uname -r)
+	Download Wheezy Virtualbox package
+
+Download and run ZAP Proxy
+Download crackmapexec
+Download and install OWTF
+	
+	 wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap.sh; bash bootstrap.sh 
+	
+
+
+Create Directory Structure
+
+Disable tracker miner fs
+
+#whitepaperz.com/things-installing-kali
+
+Download merger.py file. Place in Nessus folder in Documents.
+
+#Optional
+Download and set up Nessus parser and install appropriate Perl Modules.
+
+#Netsparker wordlists for DirBuster
+wget https://www.netsparker.com/s/research/SVNDigger.zip
+
+#Username wordlists
+https://github.com/insidetrust/statistically-likely-usernames
+
+Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
