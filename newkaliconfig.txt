@@ -28,6 +28,11 @@ Download and install updated firefox version
 
 #Enable bash colors
 sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
+
+#Add Terminal to Startup Applications
+	Open Tweak Tool
+	Search for Startup Applications at left
+	Click + button and add Terminal
 Nessus setup
 
 Use Alacarte to add "enable sound" as system service:
@@ -149,3 +154,5 @@ wget https://www.netsparker.com/s/research/SVNDigger.zip
 https://github.com/insidetrust/statistically-likely-usernames
 
 Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
+
+version-04282017
