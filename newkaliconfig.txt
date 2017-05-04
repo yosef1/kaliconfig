@@ -38,7 +38,12 @@ sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
 	Open Tweak Tool
 	Search for Startup Applications at left
 	Click + button and add Terminal
+
 Nessus setup
+	Get it working perfectly, with everything downloaded. Then backup the whole /opt/nessus folder somewhere safe.
+
+
+
 
 Use Alacarte to add "enable sound" as system service:
 	systemctl --user enable pulseaudio
@@ -162,4 +167,4 @@ https://github.com/insidetrust/statistically-likely-usernames
 
 Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-05012017
+version-05042017
