@@ -42,14 +42,8 @@ sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
 Nessus setup
 	Get it working perfectly, with everything downloaded. Then backup the whole /opt/nessus folder somewhere safe.
 
-
-
-
 Use Alacarte to add "enable sound" as system service:
 	systemctl --user enable pulseaudio
-
-
-
 
 #If necessary
 Please install the latest packages            
@@ -67,6 +61,11 @@ Check Metasploit works and build database
 	#hmm, will have to fix at some point
 	update-rc.d postgresql start
 	update-rc.d metasploit start
+
+	when starting msf, run the following commands first:
+	msfdb start
+	msfd
+	msfconsole
 
 
 Burp Suite
@@ -142,9 +141,9 @@ Download and dpkg -i Virtualbox
 
 Download and run ZAP Proxy
 Download crackmapexec
-Download and install OWTF
+# Download and install OWTF
 	
-	 wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap.sh; bash bootstrap.sh 
+wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap.sh; bash bootstrap.sh 
 	
 
 
@@ -167,4 +166,4 @@ https://github.com/insidetrust/statistically-likely-usernames
 
 Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-05042017
+version-05152017
