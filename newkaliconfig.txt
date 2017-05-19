@@ -19,7 +19,11 @@ Firefox - default search engine, remove bookmarks
 	Go to website to find dpkg.
 	dpkg -i asdf.dpkg and add license - use dpkg with .deb file to launch sublime with subl
 	create text file. Right-click on properties, select "open with", and set SublimeText as default
-
+	Package Control
+		Install Package Control and restart SublimeText
+		Wait a bit, then go to Preferences - Package Control - List Packages
+		Type indent, select "IndentXML" and install.
+		To format as xml, go to Selection - Format - XML.
 
 apt-get install libreoffice screen synaptic gedit flashplugin-nonfree htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev
 
@@ -166,4 +170,4 @@ https://github.com/insidetrust/statistically-likely-usernames
 
 Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-05152017
+version-05192017
