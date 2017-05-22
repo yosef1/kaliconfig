@@ -32,6 +32,7 @@ apt-get install libreoffice screen synaptic gedit flashplugin-nonfree htop strac
 apt-get install icedtea-plugin and configure plugin in about:addons
 
 Download and install updated firefox version
+	Download and install alacarte
 	Use alacarte to add it as a shortcut to System Services
 	e.g. /root/Tools/firefox/firefox
 
@@ -46,7 +47,7 @@ sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
 Nessus setup
 	Get it working perfectly, with everything downloaded. Then backup the whole /opt/nessus folder somewhere safe.
 
-Use Alacarte to add "enable sound" as system service:
+Use Alacarte to add "enable sound" as system service, if necessary, otherwise:
 	systemctl --user enable pulseaudio
 
 #If necessary
@@ -91,6 +92,7 @@ Set up EyeWitness
 	cd setup
 	./setup.sh
 
+#Install extra packages above, then:
 Set up masscan
 	git clone https://github.com/robertdavidgraham/masscan.git
 	cd masscan
@@ -146,8 +148,7 @@ Download and dpkg -i Virtualbox
 Download and run ZAP Proxy
 Download crackmapexec
 # Download and install OWTF
-	
-wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap.sh; bash bootstrap.sh 
+	wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap.sh; bash 	bootstrap.sh 
 	
 #Download and install SVNDigger
 #Download and install lynis
@@ -158,7 +159,11 @@ wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap
 
 Create Directory Structure
 
-Disable tracker miner fs
+#Disable tracker miner fs
+echo -e "\nHidden=true\n" | sudo tee --append /etc/xdg/autostart/tracker-extract.desktop /etc/xdg/autostart/tracker-miner-apps.desktop /etc/xdg/autostart/tracker-miner-fs.desktop /etc/xdg/autostart/tracker-miner-user-guides.desktop /etc/xdg/autostart/tracker-store.desktop > /dev/null
+gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2  
+gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false  
+tracker reset --hard   
 
 #whitepaperz.com/things-installing-kali
 
