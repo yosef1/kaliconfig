@@ -46,6 +46,7 @@ sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
 
 Nessus setup
 	Get it working perfectly, with everything downloaded. Then backup the whole /opt/nessus folder somewhere safe.
+	Import nmapxml.nasl plugin and follow guide here https://community.tenable.com/docs/DOC-1269
 
 Use Alacarte to add "enable sound" as system service, if necessary, otherwise:
 	systemctl --user enable pulseaudio
@@ -169,6 +170,11 @@ tracker reset --hard
 
 Download merger.py file. Place in Nessus folder in Documents.
 
+Disable auto update:
+Open Dconf-editor
+org-gnome-software - download-updates
+at bottom, move slider for "Use default" value and change setting to "false"
+
 #Optional
 Download and set up Nessus parser and install appropriate Perl Modules.
 
@@ -180,4 +186,4 @@ https://github.com/insidetrust/statistically-likely-usernames
 
 Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-05212017
+version-05242017
