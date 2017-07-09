@@ -155,7 +155,7 @@ Download crackmapexec
 #Download and install lynis
 #Download and install zim
 #Download and install old version of OpenSSL for testing (????) - todo
-
+apt-get install libssl1.0-dev
 
 
 Create Directory Structure
@@ -169,6 +169,7 @@ tracker reset --hard
 #whitepaperz.com/things-installing-kali
 
 Download merger.py file. Place in Nessus folder in Documents.
+Download wp6.sh file
 
 Disable auto update:
 Open Dconf-editor
@@ -186,4 +187,4 @@ https://github.com/insidetrust/statistically-likely-usernames
 
 Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-05242017
+version-07092017
