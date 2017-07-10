@@ -9,13 +9,16 @@ deb http://http.kali.org/kali kali-rolling main contrib non-free
 
 add non-root user (useradd -m "USER" -G sudo -s /bin/bash) and passwd
 
+#Bash-History
+https://stackoverflow.com/questions/9457233/unlimited-bash-history
+
 firefox -P - Profiles - testing and research
 Tweak Tool - Dash to Dock at bottom
 Firefox addons for testing profile - web developer, hackbar
 Firefox - default search engine, remove bookmarks
 
 
-#Install Sublime Text
+# Install Sublime Text
 	Go to website to find dpkg.
 	dpkg -i asdf.dpkg and add license - use dpkg with .deb file to launch sublime with subl
 	create text file. Right-click on properties, select "open with", and set SublimeText as default
@@ -28,18 +31,22 @@ Firefox - default search engine, remove bookmarks
 apt-get install libreoffice screen synaptic gedit flashplugin-nonfree htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev
 
 
-#Needs to be fixed
+# Needs to be fixed
 apt-get install icedtea-plugin and configure plugin in about:addons
 
 Download and install updated firefox version
-	Download and install alacarte
+apt-get install alacarte
 	Use alacarte to add it as a shortcut to System Services
 	e.g. /root/Tools/firefox/firefox
 
-#Enable bash colors
+
+
+
+
+# Enable bash colors
 sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
 
-#Add Terminal to Startup Applications
+# Add Terminal to Startup Applications
 	Open Tweak Tool
 	Search for Startup Applications at left
 	Click + button and add Terminal
@@ -49,9 +56,9 @@ Nessus setup
 	Import nmapxml.nasl plugin and follow guide here https://community.tenable.com/docs/DOC-1269
 
 Use Alacarte to add "enable sound" as system service, if necessary, otherwise:
-	systemctl --user enable pulseaudio
+systemctl --user enable pulseaudio
 
-#If necessary
+# If necessary
 Please install the latest packages            
  │ (postgresql-9.6 and postgresql-client-9.6) and upgrade the existing         
  │ clusters with pg_upgradecluster (see manpage).      
@@ -88,56 +95,57 @@ Burp Suite
 	Font settings
 
 
-Set up EyeWitness
-	git clone https://github.com/ChrisTruncer/EyeWitness.git
-	cd setup
-	./setup.sh
+# Set up EyeWitness
+git clone https://github.com/ChrisTruncer/EyeWitness.git
+cd setup
+./setup.sh
 
-#Install extra packages above, then:
-Set up masscan
-	git clone https://github.com/robertdavidgraham/masscan.git
-	cd masscan
-	make
+# Install extra packages above, then:
+
+# Set up masscan
+git clone https://github.com/robertdavidgraham/masscan.git
+cd masscan
+make
 
 
-Download Password lists
+# Download Password lists
 	yosefkerzner.com/scripts/Wordlists
 	https://hashes.org/crackers.php
 
 
-Clone Seclists repository
-	git clone https://github.com/danielmiessler/SecLists.git
+# Clone Seclists repository
+git clone https://github.com/danielmiessler/SecLists.git
 
-#https://github.com/adamcaudill/yawast
+# https://github.com/adamcaudill/yawast
 Set up and install YAWAST (useful for SSL testing)
-	gem install yawast
+gem install yawast
 
-#In Kali 2016.2 SMBExec install fails due to lack of esedbtools
-Set up SMBExec
-	git clone https://github.com/pentestgeek/smbexec.git
+# In Kali 2016.2 SMBExec install fails due to lack of esedbtools
+#Set up SMBExec
+git clone https://github.com/pentestgeek/smbexec.git
 
-Set up Responder (SpiderLabs version)
-	git clone https://github.com/SpiderLabs/Responder.git
+# Set up Responder (SpiderLabs version)
+git clone https://github.com/SpiderLabs/Responder.git
 
-Set up NoSQLMap
-	git clone https://github.com/tcstool/NoSQLMap.git
+# Set up NoSQLMap
+git clone https://github.com/tcstool/NoSQLMap.git
 
-Set up mimikatz
-	git clone https://github.com/gentilkiwi/mimikatz.git
+# Set up mimikatz
+git clone https://github.com/gentilkiwi/mimikatz.git
 
 Run Social Engineering Toolkit to agree to Terms and Conditions
 
-Set up wifite2
-	git clone https://github.com/derv82/wifite2.git
+# Get wifite2
+git clone https://github.com/derv82/wifite2.git
 
-Set up Powersploit
-	git clone https://github.com/PowerShellMafia/PowerSploit.git
-	wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py
-	wget https://raw.githubusercontent.com/obscuresec/random/master/StartListener.py
+# Set up Powersploit
+git clone https://github.com/PowerShellMafia/PowerSploit.git
+wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py
+wget https://raw.githubusercontent.com/obscuresec/random/master/StartListener.py
 
-Set up Veil-Framework
-	git clone https://github.com/Veil-Framework/Veil-Evasion.git
-	sh Veil-Evasion/setup/setup.sh -s
+# Set up Veil-Framework
+git clone https://github.com/Veil-Framework/Veil-Evasion.git
+sh Veil-Evasion/setup/setup.sh -s
 
 
 
@@ -149,7 +157,7 @@ Download and dpkg -i Virtualbox
 Download and run ZAP Proxy
 Download crackmapexec
 # Download and install OWTF
-	wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap.sh; bash 	bootstrap.sh 
+wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap.sh; bash 	bootstrap.sh 
 	
 #Download and install SVNDigger
 #Download and install lynis
@@ -169,7 +177,8 @@ tracker reset --hard
 #whitepaperz.com/things-installing-kali
 
 Download merger.py file. Place in Nessus folder in Documents.
-Download wp6.sh file
+
+wget https://raw.githubusercontent.com/hak5darren/wp6/master/wp6.sh
 
 Disable auto update:
 Open Dconf-editor
@@ -187,4 +196,4 @@ https://github.com/insidetrust/statistically-likely-usernames
 
 Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-07092017
+version-07102017
