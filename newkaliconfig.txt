@@ -40,9 +40,6 @@ apt-get install alacarte
 	e.g. /root/Tools/firefox/firefox
 
 
-
-
-
 # Enable bash colors
 sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
 
@@ -94,27 +91,71 @@ Burp Suite
 	Shortcuts
 	Font settings
 
+#!/bin/bash
 
-# Set up EyeWitness
-git clone https://github.com/ChrisTruncer/EyeWitness.git
-cd setup
+mkdir ~/Tools/
+cd ~/Tools/
+
+echo "Downloading some tools...\n\n"
+
+wget https://raw.githubusercontent.com/Meatballs1/NetXML-to-CSV/master/netxml_to_csv.py
+wget https://raw.githubusercontent.com/hak5darren/wp6/master/wp6.sh
+wget https://raw.githubusercontent.com/pan0pt1c0n/WAPMap/master/wap_mapper.py
+
+echo "Setting up EyeWitness from Github...\n\n"
+
+git clone https://github.com/ChrisTruncer/EyeWitness.git EyeWitness/
+cd EyeWitness/setup
 ./setup.sh
+cd ~/Tools/
 
-# Install extra packages above, then:
+echo "Setting up Masscan from Github...\n\n"
 
-# Set up masscan
-git clone https://github.com/robertdavidgraham/masscan.git
+git clone https://github.com/robertdavidgraham/masscan.git masscan/
 cd masscan
 make
+cd ~/Tools/
+
+echo "Downloading SecLists from Github...\n\n"
+
+git clone https://github.com/danielmiessler/SecLists.git SecLists/
+
+echo "Downloading Responder from Github...\n\n"
+
+git clone https://github.com/SpiderLabs/Responder.git
+
+echo "Downloading NoSQLMap from Github...\n\n"
+
+git clone https://github.com/tcstool/NoSQLMap.git
+
+echo "Downloading Mimikatz from Github...\n\n"
+
+git clone https://github.com/gentilkiwi/mimikatz.git
+
+echo "Downloading wifite2 from Github...\n\n"
+
+git clone https://github.com/derv82/wifite2.git
+
+echo "Setting up Powersploit from Github...\n\n"
+
+git clone https://github.com/PowerShellMafia/PowerSploit.git PowerSploit/
+cd PowerSploit/
+wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py
+wget https://raw.githubusercontent.com/obscuresec/random/master/StartListener.py
+cd ~/Tools/
+
+echo "Downloading Netsparker wordlists for DirBuster...\n\n"
+
+wget https://www.netsparker.com/s/research/SVNDigger.zip
+
+cd ~/Documents/
+wget https://gist.githubusercontent.com/mastahyeti/2720173/raw/9ab200dc085bfada9bc135a5379e36bf37d42a80/merger.py
+cd ~
 
 
 # Download Password lists
 	yosefkerzner.com/scripts/Wordlists
 	https://hashes.org/crackers.php
-
-
-# Clone Seclists repository
-git clone https://github.com/danielmiessler/SecLists.git
 
 # https://github.com/adamcaudill/yawast
 Set up and install YAWAST (useful for SSL testing)
@@ -124,30 +165,9 @@ gem install yawast
 #Set up SMBExec
 git clone https://github.com/pentestgeek/smbexec.git
 
-# Set up Responder (SpiderLabs version)
-git clone https://github.com/SpiderLabs/Responder.git
-
-# Set up NoSQLMap
-git clone https://github.com/tcstool/NoSQLMap.git
-
-# Set up mimikatz
-git clone https://github.com/gentilkiwi/mimikatz.git
-
-Run Social Engineering Toolkit to agree to Terms and Conditions
-
-# Get wifite2
-git clone https://github.com/derv82/wifite2.git
-
-# Set up Powersploit
-git clone https://github.com/PowerShellMafia/PowerSploit.git
-wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py
-wget https://raw.githubusercontent.com/obscuresec/random/master/StartListener.py
-
 # Set up Veil-Framework
 git clone https://github.com/Veil-Framework/Veil-Evasion.git
 sh Veil-Evasion/setup/setup.sh -s
-
-
 
 Download and dpkg -i Virtualbox
 	#Currently does not work in Kali 2016.2
@@ -176,9 +196,6 @@ tracker reset --hard
 
 #whitepaperz.com/things-installing-kali
 
-Download merger.py file. Place in Nessus folder in Documents.
-
-wget https://raw.githubusercontent.com/hak5darren/wp6/master/wp6.sh
 
 Disable auto update:
 Open Dconf-editor
@@ -188,12 +205,11 @@ at bottom, move slider for "Use default" value and change setting to "false"
 #Optional
 Download and set up Nessus parser and install appropriate Perl Modules.
 
-#Netsparker wordlists for DirBuster
-wget https://www.netsparker.com/s/research/SVNDigger.zip
+
 
 #Username wordlists
 https://github.com/insidetrust/statistically-likely-usernames
 
 Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-07102017
+version-07122017
