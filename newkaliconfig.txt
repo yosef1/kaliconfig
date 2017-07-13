@@ -122,19 +122,19 @@ git clone https://github.com/danielmiessler/SecLists.git SecLists/
 
 echo "\nDownloading Responder from Github...\n\n"
 
-git clone https://github.com/SpiderLabs/Responder.git
+git clone https://github.com/lgandx/Responder.git Responder/
 
 echo "\nDownloading NoSQLMap from Github...\n\n"
 
-git clone https://github.com/tcstool/NoSQLMap.git
+git clone https://github.com/tcstool/NoSQLMap.git NoSQLMap/
 
 echo "\nDownloading Mimikatz from Github...\n\n"
 
-git clone https://github.com/gentilkiwi/mimikatz.git
+git clone https://github.com/gentilkiwi/mimikatz.git mimikatz/
 
 echo "\nDownloading wifite2 from Github...\n\n"
 
-git clone https://github.com/derv82/wifite2.git
+git clone https://github.com/derv82/wifite2.git wifite2/
 
 echo "\nSetting up Powersploit from Github...\n\n"
 
@@ -189,8 +189,21 @@ git clone https://github.com/Veil-Framework/Veil-Evasion.git Veil/
 cd Veil/
 sh Veil-Evasion/setup/setup.sh -s
 
+# Create Directory Structure
+
+echo "\n\nPlease enter Client or Project Name: "
+read client
+cd ~/Documents/
+mkdir $client
+cd $client
+mkdir Wireless
+mkdir External && cd External && mkdir burpsuite && mkdir Nessus && mkdir Hacklog && cd ..
+mkdir Internal && cd Internal && mkdir Wireshark && mkdir wireless && mkdir nmap && mkdir nessus && mkdir EyeWitness && mkdir exploitation && cd ..
+mkdir SE
+cd ~
 
 
+-------OPTIONAL -----------
 
 
 Download and dpkg -i Virtualbox
@@ -210,21 +223,6 @@ wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap
 apt-get install libssl1.0-dev
 
 
-# Create Directory Structure
-
-echo "Please enter Client or Project Name"
-read client
-cd ~/Documents/
-mkdir $client
-cd $client
-mkdir Wireless
-mkdir External && cd External && mkdir burpsuite && mkdir Nessus && mkdir Hacklog && cd ..
-mkdir Internal && cd Internal && mkdir Wireshark && mkdir wireless && mkdir nmap && mkdir nessus && mkdir EyeWitness && mkdir exploitation && cd ..
-mkdir SE
-cd ~
-
-
-
 # Disable auto update:
 # Open Dconf-editor
 # org-gnome-software - download-updates
@@ -237,4 +235,4 @@ cd ~
 
 # Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-07122017
+version-07132017
