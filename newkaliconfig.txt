@@ -102,41 +102,41 @@ wget https://raw.githubusercontent.com/Meatballs1/NetXML-to-CSV/master/netxml_to
 wget https://raw.githubusercontent.com/hak5darren/wp6/master/wp6.sh
 wget https://raw.githubusercontent.com/pan0pt1c0n/WAPMap/master/wap_mapper.py
 
-echo "Setting up EyeWitness from Github...\n\n"
+echo "\nSetting up EyeWitness from Github...\n\n"
 
 git clone https://github.com/ChrisTruncer/EyeWitness.git EyeWitness/
 cd EyeWitness/setup
 ./setup.sh
 cd ~/Tools/
 
-echo "Setting up Masscan from Github...\n\n"
+echo "\nSetting up Masscan from Github...\n\n"
 
 git clone https://github.com/robertdavidgraham/masscan.git masscan/
 cd masscan
 make
 cd ~/Tools/
 
-echo "Downloading SecLists from Github...\n\n"
+echo "\nDownloading SecLists from Github...\n\n"
 
 git clone https://github.com/danielmiessler/SecLists.git SecLists/
 
-echo "Downloading Responder from Github...\n\n"
+echo "\nDownloading Responder from Github...\n\n"
 
 git clone https://github.com/SpiderLabs/Responder.git
 
-echo "Downloading NoSQLMap from Github...\n\n"
+echo "\nDownloading NoSQLMap from Github...\n\n"
 
 git clone https://github.com/tcstool/NoSQLMap.git
 
-echo "Downloading Mimikatz from Github...\n\n"
+echo "\nDownloading Mimikatz from Github...\n\n"
 
 git clone https://github.com/gentilkiwi/mimikatz.git
 
-echo "Downloading wifite2 from Github...\n\n"
+echo "\nDownloading wifite2 from Github...\n\n"
 
 git clone https://github.com/derv82/wifite2.git
 
-echo "Setting up Powersploit from Github...\n\n"
+echo "\nSetting up Powersploit from Github...\n\n"
 
 git clone https://github.com/PowerShellMafia/PowerSploit.git PowerSploit/
 cd PowerSploit/
@@ -144,30 +144,54 @@ wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps
 wget https://raw.githubusercontent.com/obscuresec/random/master/StartListener.py
 cd ~/Tools/
 
-echo "Downloading Netsparker wordlists for DirBuster...\n\n"
+echo "\nDownloading Netsparker wordlists for DirBuster...\n\n"
 
 wget https://www.netsparker.com/s/research/SVNDigger.zip
 
+echo "\nDownloading merger.py...\n\n"
+
 cd ~/Documents/
 wget https://gist.githubusercontent.com/mastahyeti/2720173/raw/9ab200dc085bfada9bc135a5379e36bf37d42a80/merger.py
+
+echo "\nDownloading Password lists from my site...\n\n"
+
+mkdir ~/Tools/Wordlists && cd ~/Tools/Wordlists
+wget https://www.yosefkerzner.com/scripts/Wordlists/crackstation-human-only.txt.gz
+wget https://www.yosefkerzner.com/scripts/Wordlists/random_combined_wordlist.zip
+wget https://www.yosefkerzner.com/scripts/Wordlists/rockyou.zip
+
+# you could also get some more at https://hashes.org/crackers.php
+
+cd ~/Tools/
+
+echo "\nDownloading but not installing smbexec...\n\n"
+git clone https://github.com/pentestgeek/smbexec.git
+# In Kali 2016.2 SMBExec install fails due to lack of esedbtools
+
+# Disable tracker miner fs
+
 cd ~
+echo -e "\nHidden=true\n" | sudo tee --append /etc/xdg/autostart/tracker-extract.desktop /etc/xdg/autostart/tracker-miner-apps.desktop /etc/xdg/autostart/tracker-miner-fs.desktop /etc/xdg/autostart/tracker-miner-user-guides.desktop /etc/xdg/autostart/tracker-store.desktop > /dev/null
+gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2  
+gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false  
+tracker reset --hard   
 
-
-# Download Password lists
-	yosefkerzner.com/scripts/Wordlists
-	https://hashes.org/crackers.php
+cd ~/Tools/
 
 # https://github.com/adamcaudill/yawast
-Set up and install YAWAST (useful for SSL testing)
+
+echo "\nDownloading and installing YAWAST (for SSL testing)...\n\n"
+
 gem install yawast
 
-# In Kali 2016.2 SMBExec install fails due to lack of esedbtools
-#Set up SMBExec
-git clone https://github.com/pentestgeek/smbexec.git
-
-# Set up Veil-Framework
-git clone https://github.com/Veil-Framework/Veil-Evasion.git
+echo "\nDownloading and installing Veil-Framework...\n\n"
+git clone https://github.com/Veil-Framework/Veil-Evasion.git Veil/
+cd Veil/
 sh Veil-Evasion/setup/setup.sh -s
+
+
+
+
 
 Download and dpkg -i Virtualbox
 	#Currently does not work in Kali 2016.2
@@ -186,30 +210,31 @@ wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap
 apt-get install libssl1.0-dev
 
 
-Create Directory Structure
+# Create Directory Structure
 
-#Disable tracker miner fs
-echo -e "\nHidden=true\n" | sudo tee --append /etc/xdg/autostart/tracker-extract.desktop /etc/xdg/autostart/tracker-miner-apps.desktop /etc/xdg/autostart/tracker-miner-fs.desktop /etc/xdg/autostart/tracker-miner-user-guides.desktop /etc/xdg/autostart/tracker-store.desktop > /dev/null
-gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2  
-gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false  
-tracker reset --hard   
-
-#whitepaperz.com/things-installing-kali
-
-
-Disable auto update:
-Open Dconf-editor
-org-gnome-software - download-updates
-at bottom, move slider for "Use default" value and change setting to "false"
-
-#Optional
-Download and set up Nessus parser and install appropriate Perl Modules.
+echo "Please enter Client or Project Name"
+read client
+cd ~/Documents/
+mkdir $client
+cd $client
+mkdir Wireless
+mkdir External && cd External && mkdir burpsuite && mkdir Nessus && mkdir Hacklog && cd ..
+mkdir Internal && cd Internal && mkdir Wireshark && mkdir wireless && mkdir nmap && mkdir nessus && mkdir EyeWitness && mkdir exploitation && cd ..
+mkdir SE
+cd ~
 
 
 
-#Username wordlists
-https://github.com/insidetrust/statistically-likely-usernames
+# Disable auto update:
+# Open Dconf-editor
+# org-gnome-software - download-updates
+# at bottom, move slider for "Use default" value and change setting to "false"
 
-Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
+# whitepaperz.com/things-installing-kali
+
+# Username wordlists
+# https://github.com/insidetrust/statistically-likely-usernames
+
+# Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
 version-07122017
