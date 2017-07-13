@@ -102,6 +102,14 @@ wget https://raw.githubusercontent.com/Meatballs1/NetXML-to-CSV/master/netxml_to
 wget https://raw.githubusercontent.com/hak5darren/wp6/master/wp6.sh
 wget https://raw.githubusercontent.com/pan0pt1c0n/WAPMap/master/wap_mapper.py
 
+
+# GitHub section
+
+echo "\nDownloading subbrute from GitHub...\n\n"
+cd ~/Tools
+git clone https://github.com/TheRook/subbrute.git subbrute/
+
+
 echo "\nSetting up EyeWitness from Github...\n\n"
 
 git clone https://github.com/ChrisTruncer/EyeWitness.git EyeWitness/
