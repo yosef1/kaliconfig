@@ -1,12 +1,6 @@
 apt-get update
 apt-get dist-upgrade
 
-Double-check /etc/apt/sources.list, it should have the following:
-
-deb http://http.kali.org/kali kali-rolling main contrib non-free
-# For source package access, uncomment the following line
-# deb-src http://http.kali.org/kali kali-rolling main contrib non-free
-
 add non-root user (useradd -m "USER" -G sudo -s /bin/bash) and passwd
 
 #Bash-History
@@ -19,8 +13,7 @@ Firefox - default search engine, remove bookmarks
 
 
 # Install Sublime Text
-	Go to website to find dpkg.
-	dpkg -i asdf.dpkg and add license - use dpkg with .deb file to launch sublime with subl
+	Add SublimeText Repository to apt and install it. Add license.
 	create text file. Right-click on properties, select "open with", and set SublimeText as default
 	Package Control
 		Install Package Control and restart SublimeText
@@ -28,20 +21,12 @@ Firefox - default search engine, remove bookmarks
 		Type indent, select "IndentXML" and install.
 		To format as xml, go to Selection - Format - XML.
 
-apt-get install libreoffice screen synaptic gedit flashplugin-nonfree htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev
-
-
 # Needs to be fixed
 apt-get install icedtea-plugin and configure plugin in about:addons
 
 Download and install updated firefox version
-apt-get install alacarte
-	Use alacarte to add it as a shortcut to System Services
-	e.g. /root/Tools/firefox/firefox
-
-
-# Enable bash colors
-sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
+Use alacarte to add it as a shortcut to System Services
+e.g. /root/Tools/firefox/firefox
 
 # Add Terminal to Startup Applications
 	Open Tweak Tool
@@ -52,8 +37,7 @@ Nessus setup
 	Get it working perfectly, with everything downloaded. Then backup the whole /opt/nessus folder somewhere safe.
 	Import nmapxml.nasl plugin and follow guide here https://community.tenable.com/docs/DOC-1269
 
-Use Alacarte to add "enable sound" as system service, if necessary, otherwise:
-systemctl --user enable pulseaudio
+
 
 # If necessary
 Please install the latest packages            
@@ -91,17 +75,24 @@ Burp Suite
 	Shortcuts
 	Font settings
 
+---------------------------------------------------------
+
+
+
 #!/bin/bash
 
 mkdir ~/Tools/
 cd ~/Tools/
 
-echo "Downloading some tools...\n\n"
+echo "\n\nInstalling important packages: libreoffice screen synaptic gedit flashplugin-nonfree htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte"
+
+apt-get install libreoffice screen synaptic gedit flashplugin-nonfree htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte
+
+echo "\n\nDownloading some tools..."
 
 wget https://raw.githubusercontent.com/Meatballs1/NetXML-to-CSV/master/netxml_to_csv.py
 wget https://raw.githubusercontent.com/hak5darren/wp6/master/wp6.sh
 wget https://raw.githubusercontent.com/pan0pt1c0n/WAPMap/master/wap_mapper.py
-
 
 # GitHub section
 
@@ -194,8 +185,8 @@ gem install yawast
 
 echo "\nDownloading and installing Veil-Framework...\n\n"
 git clone https://github.com/Veil-Framework/Veil-Evasion.git Veil/
-cd Veil/
-sh Veil-Evasion/setup/setup.sh -s
+cd Veil/setup/
+./setup.sh -s
 
 # Create Directory Structure
 
@@ -210,6 +201,13 @@ mkdir Internal && cd Internal && mkdir Wireshark && mkdir wireless && mkdir nmap
 mkdir SE
 cd ~
 
+echo "\n\nA few more tweaks..."
+
+# Enable bash colors
+sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
+
+# Use Alacarte to add "enable sound" as system service, if necessary, otherwise:
+systemctl --user enable pulseaudio
 
 -------OPTIONAL -----------
 
@@ -243,4 +241,4 @@ apt-get install libssl1.0-dev
 
 # Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-07132017
+version-08062017
