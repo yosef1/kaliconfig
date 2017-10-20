@@ -4,7 +4,9 @@ apt-get dist-upgrade
 add non-root user (useradd -m "USER" -G sudo -s /bin/bash) and passwd
 
 #Bash-History
-https://stackoverflow.com/questions/9457233/unlimited-bash-history
+	https://stackoverflow.com/questions/9457233/unlimited-bash-history
+	source ~/.bashrc
+
 
 firefox -P - Profiles - testing and research
 Tweak Tool - Dash to Dock at bottom
@@ -39,24 +41,14 @@ Nessus setup
 
 
 
-# If necessary
-Please install the latest packages            
- │ (postgresql-9.6 and postgresql-client-9.6) and upgrade the existing         
- │ clusters with pg_upgradecluster (see manpage).      
-
-Check Metasploit works and build database
-	service postgresql start
-
+Check Metasploit works and build database for searches
 	msfdb init
 	msfconsole
+	msf> db_rebuild_cache
 	msf> db_status
 
-	exit, then
-	#hmm, will have to fix at some point
-	update-rc.d postgresql start
-	update-rc.d metasploit start
-
 	when starting msf, run the following commands first:
+	service postgresql start
 	msfdb start
 	msfd
 	msfconsole
@@ -84,9 +76,10 @@ Burp Suite
 mkdir ~/Tools/
 cd ~/Tools/
 
-echo "\n\nInstalling important packages: libreoffice screen synaptic gedit flashplugin-nonfree htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte"
+# to fix - flashplugin-nonfree 
+echo "\n\nInstalling important packages: libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte"
 
-apt-get install libreoffice screen synaptic gedit flashplugin-nonfree htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte
+apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte
 
 echo "\n\nDownloading some tools..."
 
@@ -241,4 +234,4 @@ apt-get install libssl1.0-dev
 
 # Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-08062017
+version-10192017
