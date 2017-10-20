@@ -35,6 +35,12 @@ e.g. /root/Tools/firefox/firefox
 	Search for Startup Applications at left
 	Click + button and add Terminal
 
+# Disable Terminal Error Beep
+	Open Terminal
+	Edit - Profile Preferences
+	General - Uncheck "Terminal Bell"
+
+
 Nessus setup
 	Get it working perfectly, with everything downloaded. Then backup the whole /opt/nessus folder somewhere safe.
 	Import nmapxml.nasl plugin and follow guide here https://community.tenable.com/docs/DOC-1269
@@ -77,9 +83,9 @@ mkdir ~/Tools/
 cd ~/Tools/
 
 # to fix - flashplugin-nonfree 
-echo "\n\nInstalling important packages: libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte"
+echo "\n\nInstalling important packages: libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common"
 
-apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte
+apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common
 
 echo "\n\nDownloading some tools..."
 
