@@ -240,4 +240,8 @@ apt-get install libssl1.0-dev
 
 # Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-version-10192017
+Install Veil Evasion
+Install Empyre - to-do 
+
+version-10242017
+
