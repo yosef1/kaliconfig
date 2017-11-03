@@ -12,6 +12,7 @@ firefox -P - Profiles - testing and research
 Tweak Tool - Dash to Dock at bottom
 Firefox addons for testing profile - web developer, hackbar
 Firefox - default search engine, remove bookmarks
+Firefox - Change Default home page to blank, not the Kali help page.
 
 
 # Install Sublime Text
@@ -83,9 +84,9 @@ mkdir ~/Tools/
 cd ~/Tools/
 
 # to fix - flashplugin-nonfree 
-echo "\n\nInstalling important packages: libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common"
+echo "\n\nInstalling important packages: libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients"
 
-apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common
+apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients
 
 echo "\n\nDownloading some tools..."
 
@@ -240,8 +241,8 @@ apt-get install libssl1.0-dev
 
 # Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-Install Veil Evasion
+Install Veil Evasion - unless everything breaks
 Install Empyre - to-do 
 
-version-10242017
+version-10272017
 
