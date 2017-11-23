@@ -84,9 +84,9 @@ mkdir ~/Tools/
 cd ~/Tools/
 
 # to fix - flashplugin-nonfree 
-echo "\n\nInstalling important packages: libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients"
+echo "\n\nInstalling important packages: libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients hostapd-wpe conky conky-all lm-sensors hddtemp"
 
-apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients
+apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients hostapd-wpe conky conky-all lm-sensors hddtemp
 
 echo "\n\nDownloading some tools..."
 
@@ -208,6 +208,12 @@ sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
 
 # Use Alacarte to add "enable sound" as system service, if necessary, otherwise:
 systemctl --user enable pulseaudio
+
+# Configure conky
+wget https://www.yosefkerzner.com/scripts/.conkyrc -O ~/.conkyrc
+echo -e "[Desktop Entry]\nType=Application\nName=conky\nExec=conky -d -b -p 5\nStartupNotify=false\nTerminal=false" > ~/.config/autostart/conky.desktop
+
+
 
 -------OPTIONAL -----------
 
