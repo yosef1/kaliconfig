@@ -240,8 +240,6 @@ apt-get install libssl1.0-dev
 # org-gnome-software - download-updates
 # at bottom, move slider for "Use default" value and change setting to "false"
 
-# whitepaperz.com/things-installing-kali
-
 # Username wordlists
 # https://github.com/insidetrust/statistically-likely-usernames
 
