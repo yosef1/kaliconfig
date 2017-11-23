@@ -250,5 +250,5 @@ apt-get install libssl1.0-dev
 Install Veil Evasion - unless everything breaks
 Install Empyre - to-do 
 
-version-10272017
+version-11232017
 
