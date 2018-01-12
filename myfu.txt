@@ -1,0 +1,311 @@
+# disable ubuntu updateÂ 
+sudo killall update-notifier
+sudo mv /usr/bin/update-notifier /usr/bin/update-notifier.real
+echo -e '#!/bin/bash\nwhile :; do /bin/sleep 86400; done' | sudo tee /usr/bin/update-notifier
+sudo chmod 755 /usr/bin/update-notifier
+You should disable the automatic Kali updates because IDS usually check for that.
+
+The story begins when the attacker was tipped off to an Internet accessible server (sensu.instagram.com). The attacker did not have to take any of the normal recon steps. Normally an attack would need to try to identify sub-domains and IP addresses owned by the business. To find sub-domains, they can try making a domain transfer (AXFR) request, or brute-forcing them. Both these techniques can be accomplished with Bluto. That tool's wordlist doesn't have "sensu" as a possible sub-domain, nor did other tools I looked at. An attacker's sub-domain wordlist should also contain other likely server names associated with common tools such as "nagios", "jenkins", "hudson", "git", etc. 
+
+https://summitroute.com/blog/2015/12/24/instagram_bounty_case_study_for_defense/
+
+# Search office documents for PII
+# CC with SSN no dash ( high false positive )
+find  . -iname "*.???x" -type f -exec  unzip -p '{}' '*'  \; | sed -e 's/<[^>]\{1,\}>/ /g; s/[^[:print:]]\{1,\}/ /g' | egrep "\b4[0-9]{12}(?:[0-9]{3})?\b|\b5[1-5][0-9]{14}\b|\b6011[0-9]{14}\b|\b3(?:0[0-5]\b|\b[68][0-9])[0-9]{11}\b|\b3[47][0-9]{13}\b|\b[0-9]{3}-[0-9]{2}-[0-9]{4}\b|\b[0-9]{9}\b"
+
+# CC with SSN dash (  low false positive only match ###-##-#### not any 8digi number )
+find  . -iname "*.???x" -type f -exec  unzip -p '{}' '*'  \; | sed -e 's/<[^>]\{1,\}>/ /g; s/[^[:print:]]\{1,\}/ /g' | egrep "\b4[0-9]{12}(?:[0-9]{3})?\b|\b5[1-5][0-9]{14}\b|\b6011[0-9]{14}\b|\b3(?:0[0-5]\b|\b[68][0-9])[0-9]{11}\b|\b3[47][0-9]{13}\b|\b[0-9]{3}-[0-9]{2}-[0-9]{4}\b"
+
+(Nice regex. Your cc search can be improved by incorporating the Luhn algorithm to detect valid CC #â€™s and reduce false-positives. There are also a couple of foreign-issued CCâ€™s that have a slightly different pattern.)
+
+# example PII search CC and SSN with dashes and max results 10 per file
+find .  -maxdepth 6  -size -100000k -type f  -exec egrep --max-count 10 -A 2 -B 2 -Hia "\b4[0-9]{12}(?:[0-9]{3})?\b|\b5[1-5][0-9]{14}\b|\b6011[0-9]{14}\b|\b3(?:0[0-5]\b|\b[68][0-9])[0-9]{11}\b|\b3[47][0-9]{13}\b|\b[0-9]{3}-[0-9]{2}-[0-9]{4}\b" '{}' \;
+
+#  head all files for passwords gonig 6 deep ( peeking into all files not just small ones .. )
+find .   -maxdepth 6 -type f -exec head -c 100000 '{}' \; |egrep -Hia  -A 4 -B 4 passw
+
+# find passwords 6 deep and less then 1m adding padding so you can see username/hostname info before or after the password field ..
+find . -maxdepth 6  -size -100000k -type f  -exec egrep -A 4 -B 4 -Hia passw '{}' \;
+
+ 
+# can't read ? what is wrong with you ??? find readable files...
+find .  -readable -type f
+
+# do a quick tree dump 3 levels deep of folders
+find . -maxdepth 3 \( -path /opt -o -path /proc -o -path /tmp \) -prune -o -type d
+
+#Useful UDP Ports - Not TCP Ports - use -top-ports 1000 for that, or scan all 65535 ports, or see below
+631,161,137,123,138,1434,445,135,67,53,139,500,68,520,1900,4500,514,49152,162,69,5353,111,49154,1701,998,996,997,999,3283,49153,1812,136,2222,2049,32768,5060,1025,1433,3456,80,20031,1026,7,1646,1645,1089,1090,1091,1541,4000,5050,5051,11001,20000,34962,34963,34964,34980,44818,45678,47808,50020,50021,55000,55001,55002,55003,5555
+
+java -Xmx1024M -XX:MaxPermSize=1G -jar ~/Documents/Tools/burpsuite_pro_v1.6.39.jar &
+
+perl -pi -e 's/;/\n/g' d; cat d | sort -V | uniq > dsrt.txt
+
+#todo: add cut command from nmap -sL list generation
+
+When running john, all you need to use new wordlists is cd to the directory with the wordlists (in txt format, like rockyou.txt) and run something like the following: john --wordlist=cain.txt --fork=4 logs/*.txt --rules
+No need to add them to the /usr/share/john directory and john.conf.
+
+nmap --max-retries 2 helps speed things up
+
+Name progress files with .progress, it makes it easier for naming.
+
+SMB is 135-139, 445. smb-enum-domains takes less time, smb-enum-shares much longer. Before running smb-enum-shares.nse, parse out positive domain listings from smb-enum-domains and feed them into smb-enum-shares. Also specify -p 135-139,445 to speed things up a bit.
+
+https://countuponsecurity.files.wordpress.com/2015/06/jtr-cheat-sheet.pdf
+
+consider generating a wordlist with american english words with numbers appended
+
+Todo: new kali - configure java applet in browsers, also make sure to install necessary addons for Burp FF/Iceweasel Profile
+
+#EyeWitness Usage
+chmod +x EyeWitness.py
+./EyeWitness.py --all-protocols --timeout 20 -x ~/Documents/Target.xml
+
+#
+#copy to clipboard in terminal
+xclip -i inputfile.txt -selection c
+
+#scroll up in screen
+Ctrl-A, Escape. Then Return or Escape 2X to get back to typing.
+
+#screen
+screen -L for logging, screen -S to create a name for the screen
+screen -L -S new_name
+Ctrl-A K to end session
+
+#new perl nessus compiler requires these modules
+ XML::TreePP
+    o	Data::Dumper
+    o	Math::Round
+    o	Excel::Writer::XLSX
+    	PAR::Dist
+    o	Data::Table
+    o	Excel::Writer::XLSX::Chart
+    o	Getopt::Std
+#melcara perl script usage
+perl parse_nessus_xml.v22.pl -f merged_report.nessus 
+
+#Validation of Nessus findings
+enum4linux + nmblookup + smbclient for snmp-flagged and 139/445 hosts and smb null sessions
+rdp-sec-check.pl in ~/Applications, for Terminal Services.
+nmbscan in ~/Applications/nmbscan-tool/nmbscan for scanning shares of a NetBIOS network and detecting windows hosts
+nmap --script ssl-cert,ssl-enum-ciphers -p 443,1413,3389,465,993,995 -oA cipher_check 144.74.201.0/24 for ssl cert checks
+you can also use openssl s_client -connect <IP>
+
+rpcclient for smb null session
+nbtscan - Windows only - scans for open NETBIOS nameservers on a local or remote TCP/IP network, and this is a first step in finding of open shares. - port 137 - done on all
+
+snmpwalk for public snmp servers
+remember smtp is for mail (port 25)
+
+smb null sessions - rpcclient and msfconsole - use auxiliary/scanner/smb/pipe_auditor 
+
+#Mount NFS in Kali
+apt-get install nfs-common portmap -y
+(Random init scripts will not get started, thanks to Kali policy).
+
+mount -t nfs 127.0.0.1:/path/to/share new_folder
+
+#Parse IPs that reply to pings out of nmap plain ping scan, straight into useful list.
+nmap -sn -PS 192.168.1.1/24 -oG - | awk '/Up$/{print $2}' > 192.168.1.up
+
+#Exploitation
+Let's say a machine with a critical SMB exploit isn't getting popped. Try running psexec module in Metasploit against it. Use administrator:password as uname/pw, and set workgroup. in Meterpreter, run:
+sysinfo
+getuid
+getsystem
+hashdump
+load mimikatzn
+msv
+kerberos
+run post/windows/gather/enum and tab the rest
+post/windows/gather/smart_hashdump
+
+#more wordlists-
+http://blog.g0tmi1k.com/2011/06/dictionaries-wordlists/?redirect
+https://hashes.org/crackers.php
+
+#Enable sound (keyword:alsa) in Kali Linux
+systemctl --user enable pulseaudio
+
+#DNS Server Cache snooping - or see HTML page
+https://www.neowin.net/forum/topic/1272202-dns-bind-vulnerability-remediation/
+
+##package Nessus Parser into executable
+pp -M JSON -M PAR::Dist -M URI::Escape -M LWP::UserAgent -M HTTP::Cookies -M Data::Dump -M Data::Dumper -M XML::Hash::XS -M XML::TreePP -M MIME::Base64 -M Math::Round -M Excel::Writer::XLSX  -M Excel::Writer::XLSX::Chart -M Excel::Writer::XLSX::Chart::Pie -M Data::Table -M Getopt::Std  parse_nessus_xml.v22.pl
+
+Generating grub configuration file ...
+Found background image: .background_cache.png
+Found linux image: /boot/vmlinuz-4.9.0-kali2-amd64
+Found initrd image: /boot/initrd.img-4.9.0-kali2-amd64
+Found linux image: /boot/vmlinuz-4.9.0-kali1-amd64
+Found initrd image: /boot/initrd.img-4.9.0-kali1-amd64
+Found linux image: /boot/vmlinuz-4.6.0-kali1-amd64
+Found initrd image: /boot/initrd.img-4.6.0-kali1-amd64
+done
+
+#decrypting cookies
+10:18 < flawseeker>  megan35, atom128, zong22. Maybe it can help
+#youtube-dl
+sudo youtube-dl --extract-audio --audio-format mp3 -c --restrict-filenames https://www.youtube.com/watch?v=gkzXd53yWMA > /dev/null 2>&1 &
+
+#nikto
+ nikto.pl -h nikto_hosts_file.txt -Display VPE -F htm -output nikto_all_scan_2.html
+
+#grep inside folder/directory
+grep -nr "Wireless channel to scan" .
+
+#Parsing degenerate scan results (nmap -sL)
+nmap -n -sL 192.168.1.1/24 | grep 'Nmap scan report for' | cut -f 5 -d ' ' > ips.txt
+
+#listen for incoming ICMP packets
+tcpdump ip proto \\icmp
+
+
+ 1216  ps | grep nfspy
+ 1217  ps
+ 1218  ps -e
+ 1219  kill 18546
+ 1220  cd /
+ 1221  ls
+ 1222  ls -l
+ 1223  ls -of
+ 1224  lsof
+
+#nfs mounting
+nfspy -o server=192.168.1.1:/images,hide,allow_other /path/to/special/directory/mountpoint
+
+
+
+#Java Deserializtion
+ysoserial
+https://github.com/getcode2git/exserial.git
+PowerSploit has SimpleHTTPServer I think
+loubia.py from https://github.com/metalnas/loubia for Weblogic
+
+#airodump-ng 5ghz all frequencies. It hops in 20mhz sections and will see stuff on channel 165.
+airodump-ng -C 5035-5825 wlan0mon
+
+#airodump-ng 2.4ghz all bands
+airodump-ng --channel 1-14 wlan0mon
+
+#wireshark filter probe response
+Twlan.fc.type_subtype eq 5.
+
+#Sublime Text
+Format as XML? Package Control, Install Package, indentXML, then go to Selection - Format - Indent XML/JSON
+
+#Starting eth0
+ifconfig eth0 down
+ifconfig eth0 <desired ip>
+ifconfig eth0 <netmask>
+ifconfig eth0 <gateway>
+route add default gw <gateway> eth0
+ifconfig eth0 up
+
+Testing Heartbleed
+---------------
+    If you're running Ubuntu and want to test Heartbleed you'll need to downgrade to a vulnerable
+    version of OpenSSL. That can be done by:
+
+wget https://launchpad.net/~ubuntu-security/+archive/ubuntu/ppa/+build/5436465/+files/openssl_1.0.1-4ubuntu5.11_i386.deb
+wget https://launchpad.net/~ubuntu-security/+archive/ubuntu/ppa/+build/5436465/+files/libssl-dev_1.0.1-4ubuntu5.11_i386.deb
+wget https://launchpad.net/~ubuntu-security/+archive/ubuntu/ppa/+build/5436465/+files/libssl-doc_1.0.1-4ubuntu5.11_all.deb
+wget https://launchpad.net/~ubuntu-security/+archive/ubuntu/ppa/+build/5436465/+files/libssl1.0.0_1.0.1-4ubuntu5.11_i386.deb
+sudo dpkg -i libssl1.0.0_1.0.1-4ubuntu5.11_i386.deb 
+sudo dpkg --install libssl1.0.0_1.0.1-4ubuntu5.11_i386.deb \
+libssl-dev_1.0.1-4ubuntu5.11_i386.deb \
+libssl-doc_1.0.1-4ubuntu5.11_all.deb \
+openssl_1.0.1-4ubuntu5.11_i386.deb 
+
+
+    Then use wpa_supplicant to connect to hostapd-wpe -c 
+
+ls -l /etc/NetworkManager/system-connections/ then remove entries (ProbeRequests)
+
+Download free version of MS product - use virtual lab. Guided lessons. 
+
+ aircrack-ng --bssid E8:04:62:F6:ED:C0 -e "SSID-Name" ~/Tools/wifite2/hs/handshake_identified_ESSID_MACADDRESS.cap -w ~/Tools/Wordlists/rockyou.txt 
+
+ aireplay-ng -a bssid -c target_mac -c channel interface
+ 
+#Common HTTP Ports for EyeWitness
+--add-http-ports 80,8080,8008,8888,280,591,593,2480,4444,4445,4567,5000,5104,5800,5988,5989,7001,8042,8280,8281,8530,8887,9080,9981,11371,16080
+
+--add-https-ports 443,8443,981,1311,7000,7002,8243,8531,8888,9443,12043,12443,18091,18092
+
+######
+
+D) Start the gpsd daemon running
+------------------------------------------------
+Arguments:
+-G to listen on all addresses rather than only localhost
+-n to start reading the GPS device immediately, not waiting for a client call
+-F to specify the control socket to use
+
+sudo gpsd /dev/ttyUSB0 -G -n -F /var/run/gpsd.sock
+
+Note that you have to be careful when using this start command that you specify
+the correct tty device. In my case the GPS has switched between ttyUSB0 and ttyUSB1...
+
+E) Check its state
+--------------------------------------------------
+gpspipe -r -n 10
+{"class":"VERSION","release":"3.16","rev":"3.16","proto_major":3,"proto_minor":11}
+{"class":"DEVICES","devices":[{"class":"DEVICE","path":"/dev/ttyUSB1","driver":"SiRF","activated":"2016-03-08T13:56:21.583Z","flags":1,"native":1,"bps":4800,"parity":"N","stopbits":1,"cycle":1.00}]}
+{"class":"WATCH","enable":true,"json":false,"nmea":true,"raw":0,"scaled":false,"timing":false,"split24":false,"pps":false}
+$GPGSV,2,1,07,30,19,093,18,13,56,171,33,10,14,334,25,20,16,237,28*7D
+$GPGSV,2,2,07,28,58,076,28,24,30,270,21,15,59,259,27*42
+$GPZDA,135622.00,08,03,2016,00,00*69
+$GPGGA,135622,5924.2698,N,01749.1051,E,1,07,2.20,27.62,M,26.432,M,,*75
+$GPRMC,135622,A,5924.2698,N,01749.1051,E,0.0000,0.000,080316,,*21
+$GPGSA,A,3,30,13,10,20,28,24,15,,,,,,1.9,2.2,1.5*34
+$GPZDA,135623.00,08,03,2016,00,00*68
+
+or
+
+cgps -s
+##########
+
+
+#nmap parsing
+ cat 172.17_19_connect_version_scan.gnmap | awk '{printf "%s\t", $2;
+      for (i=4;i<=NF;i++) {
+        split($i,a,"/");
+        if (a[2]=="open") printf ",%s",a[1];}
+      print ""}' | sed -e 's/,//' > parsed.txt
+
+# du disk usage sort
+du -k * | sort -nr | cut -f2 | xargs -d '\n' du -sh
+
+figure out how to visualize just connected clients to a target ESSID and/or BSSID 
+
+#easy decode in bash
+
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+
+#A stop job is running for Session c2 of user
+
+It appears you can reduce the timeout in /etc/systemd/system.conf:
+
+DefaultTimeoutStartSec=10s
+DefaultTimeoutStopSec=10s
+
+#vmware,tools,kali,kali.org
+https://docs.kali.org/general-use/install-vmware-tools-kali-guest
+
+ - then run mount-shared-folders each time
+
+ On a Windows VM the shared folder is under Network
+
+#metasploit, nmap, importing
+ https://www.redspin.com/it-security-blog/2011/09/importing-and-working-with-nmap-scans-in-metasploit-framework-4/
+
+# Old versions of Firefox addons
+
+ https://addons.mozilla.org/en-US/firefox/addon/web-developer/versions/
+
+ ## Current TCP Ports list
+
+0,7,21,22,23,25,42,53,67,69,80,110,119,123,135,139,161,162,280,389,443,445,591,593,636,873,993,995,981,1234,1389,1433,1521,1522,8445,8443,8080,8008,8000,9443,2480,4444,4445,4567,5000,5104,5800,5988,5989,6666,7001,8042,8280,8281,8530,8887,9080,9981,11371,16080,6600,7000,70002,50000,50001,8243,8531,12043,12443,18091,18092,3306,3389,5800,5900,5901,5902,5988,5989
