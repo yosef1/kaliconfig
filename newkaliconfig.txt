@@ -86,7 +86,7 @@ cd ~/Tools/
 # to fix - flashplugin-nonfree 
 echo "\n\nInstalling important packages..."
 
-apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients hostapd-wpe conky conky-all lm-sensors hddtemp apt-transport-https dconf-editor
+apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients hostapd-wpe conky conky-all lm-sensors hddtemp apt-transport-https dconf-editor cifs-utils
 
 echo "\n\nDownloading some tools..."
 
