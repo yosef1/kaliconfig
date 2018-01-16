@@ -16,7 +16,7 @@ Firefox - Change Default home page to blank, not the Kali help page.
 
 
 # Install Sublime Text
-	Add SublimeText Repository to apt and install it. Add license.
+	Add license to sublime text.
 	create text file. Right-click on properties, select "open with", and set SublimeText as default
 	Package Control
 		Install Package Control and restart SublimeText
@@ -44,7 +44,7 @@ e.g. /root/Tools/firefox/firefox
 
 Nessus setup
 	Get it working perfectly, with everything downloaded. Then backup the whole /opt/nessus folder somewhere safe.
-	Import nmapxml.nasl plugin and follow guide here https://community.tenable.com/docs/DOC-1269
+	Import nmapxml.nasl plugin and follow guide here https://www.tenable.com/blog/plugin-spotlight-import-nmap-xml-results-into-nessus
 
 
 
@@ -83,10 +83,18 @@ Burp Suite
 mkdir ~/Tools/
 cd ~/Tools/
 
+# Install Sublime Text
+
+echo "\n\nAdding Sublime Text Packages..."
+
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+
 # to fix - flashplugin-nonfree 
 echo "\n\nInstalling important packages..."
 
-apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients hostapd-wpe conky conky-all lm-sensors hddtemp apt-transport-https dconf-editor cifs-utils
+apt-get update
+apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients hostapd-wpe conky conky-all lm-sensors hddtemp apt-transport-https dconf-editor cifs-utils sublime
 
 echo "\n\nDownloading some tools..."
 
@@ -209,10 +217,17 @@ sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
 # Use Alacarte to add "enable sound" as system service, if necessary, otherwise:
 systemctl --user enable pulseaudio
 
+# Disable window animations
+settings set org.gnome.desktop.interface enable-animations false
+
 # Configure conky
+mkdir ~/.config/autostart
 wget https://www.yosefkerzner.com/scripts/.conkyrc -O ~/.conkyrc
 echo -e "[Desktop Entry]\nType=Application\nName=conky\nExec=conky -d -b -p 5\nStartupNotify=false\nTerminal=false" > ~/.config/autostart/conky.desktop
 
+echo "\n\nSome shortcuts..."
+
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 
 
 -------OPTIONAL -----------
@@ -248,5 +263,5 @@ apt-get install libssl1.0-dev
 Install Veil Evasion - unless everything breaks
 Install Empyre - to-do 
 
-version-11232017
+version-01122017
 
