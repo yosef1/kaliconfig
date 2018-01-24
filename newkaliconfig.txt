@@ -48,14 +48,14 @@ Nessus setup
 
 
 
-Check Metasploit works and build database for searches
+Check Metasploit works and build database for searches, and also make sure logging output works (spool).
 	msfdb init
 	msfconsole
+	msf> spool /root/.msf4/logs/console.log
 	msf> db_rebuild_cache
 	msf> db_status
 
 	when starting msf, run the following commands first:
-	service postgresql start
 	msfdb start
 	msfd
 	msfconsole
@@ -94,7 +94,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 echo "\n\nInstalling important packages..."
 
 apt-get update
-apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients hostapd-wpe conky conky-all lm-sensors hddtemp apt-transport-https dconf-editor cifs-utils sublime
+apt-get install libreoffice screen synaptic gedit htop strace nethogs filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients hostapd-wpe conky conky-all lm-sensors hddtemp apt-transport-https dconf-editor cifs-utils sublime forensics-extra crackmapexec
 
 echo "\n\nDownloading some tools..."
 
@@ -142,6 +142,10 @@ git clone https://github.com/gentilkiwi/mimikatz.git mimikatz/
 echo "\nDownloading wifite2 from Github...\n\n"
 
 git clone https://github.com/derv82/wifite2.git wifite2/
+
+echo "\nDownloading impacket tools...\n\n"
+
+git clone https://github.com/CoreSecurity/impacket.git
 
 echo "\nSetting up Powersploit from Github...\n\n"
 
@@ -260,8 +264,9 @@ apt-get install libssl1.0-dev
 
 # Disable hot corner https://forums.kali.org/showthread.php?31302-Disable-quot-Hot-Corners-quot-in-Kali-Rolling
 
-Install Veil Evasion - unless everything breaks
+Install Veil Evasion (try it from Kali repos instead of github), then reinstall the following: apt-get install libqt4-opengl-dev libglu1-mesa-dev libgl1-mesa-dev)
+
 Install Empyre - to-do 
 
-version-01122017
+version-01222017
 
