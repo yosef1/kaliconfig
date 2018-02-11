@@ -195,10 +195,8 @@ echo "\nDownloading and installing YAWAST (for SSL testing)...\n\n"
 
 gem install yawast
 
-echo "\nDownloading and installing Veil-Framework...\n\n"
+echo "\nDownloading but not installing Veil-Framework...\n\n"
 git clone https://github.com/Veil-Framework/Veil-Evasion.git Veil/
-cd Veil/setup/
-./setup.sh -s
 
 # Create Directory Structure
 
