@@ -244,6 +244,9 @@ echo "\n\nSome shortcuts..."
 
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 
+echo "\n\nInstalling additional wifi drivers..."
+apt install dkms realtek-rtl88xxau-dkms
+
 
 -------OPTIONAL -----------
 
