@@ -107,7 +107,7 @@ apt-get install libreoffice screen synaptic gedit htop strace nethogs \
  gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients \
  hostapd-wpe conky conky-all lm-sensors hddtemp apt-transport-https \
  dconf-editor cifs-utils sublime-text forensics-extra crackmapexec \
- gnome-system-monitor xfce4-screenshooter nautilus xfe libssl1.0-dev
+ gnome-system-monitor xfce4-screenshooter nautilus xfe 
 
 echo "\n\nDownloading some tools..."
 
@@ -188,8 +188,8 @@ wget https://www.yosefkerzner.com/scripts/Wordlists/rockyou.zip
 
 cd ~/Tools/
 
-echo "\nDownloading but not installing smbexec...\n\n"
-git clone https://github.com/pentestgeek/smbexec.git
+#echo "\nDownloading but not installing smbexec...\n\n"
+#git clone https://github.com/pentestgeek/smbexec.git
 # In Kali 2016.2 SMBExec install fails due to lack of esedbtools
 
 # Disable tracker miner fs
@@ -236,7 +236,7 @@ systemctl --user enable pulseaudio
 #settings set org.gnome.desktop.interface enable-animations false
 
 # Configure conky
-mkdir ~/.config/autostart
+#mkdir ~/.config/autostart
 wget https://www.yosefkerzner.com/scripts/.conkyrc -O ~/.conkyrc
 echo -e "[Desktop Entry]\nType=Application\nName=conky\nExec=conky -d -b -p 5\nStartupNotify=false\nTerminal=false" > ~/.config/autostart/conky.desktop
 
@@ -257,8 +257,6 @@ Download and run ZAP Proxy
 # Download and install OWTF
 wget -N https://raw.githubusercontent.com/owtf/bootstrap-script/master/bootstrap.sh; bash 	bootstrap.sh 
 	
-#Download and install SVNDigger
-#Download and install lynis
 #Download and install zim
 #Download and install old version of OpenSSL for testing (????) - todo
 apt-get install libssl1.0-dev
@@ -278,5 +276,4 @@ Install Veil Evasion (try it from Kali repos instead of github), then reinstall 
 
 Install Empyre - to-do 
 
-version-01222017
-
+version-05062018
