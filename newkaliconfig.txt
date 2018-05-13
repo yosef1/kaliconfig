@@ -107,7 +107,7 @@ apt-get install libreoffice screen synaptic gedit htop strace nethogs \
  gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients \
  hostapd-wpe conky conky-all lm-sensors hddtemp apt-transport-https \
  dconf-editor cifs-utils sublime-text forensics-extra crackmapexec \
- gnome-system-monitor xfce4-screenshooter nautilus xfe 
+ gnome-system-monitor xfce4-screenshooter nautilus xfe wicd
 
 echo "\n\nDownloading some tools..."
 
@@ -238,7 +238,10 @@ systemctl --user enable pulseaudio
 # Configure conky
 #mkdir ~/.config/autostart
 wget https://www.yosefkerzner.com/scripts/.conkyrc -O ~/.conkyrc
-echo -e "[Desktop Entry]\nType=Application\nName=conky\nExec=conky -d -b -p 5\nStartupNotify=false\nTerminal=false" > ~/.config/autostart/conky.desktop
+# For Gnome
+echo -e "[Desktop Entry]\nType=Application\nName=conky\nExec=conky -d -b -p 15\nStartupNotify=false\nTerminal=false" > ~/.config/autostart/conky.desktop
+
+
 
 echo "\n\nSome shortcuts..."
 
