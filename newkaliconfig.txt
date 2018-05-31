@@ -106,7 +106,7 @@ apt-get install libreoffice screen synaptic gedit htop strace nethogs \
  filezilla filezilla-common libssl-dev bettercap slowhttptest rusers git \
  gcc make libpcap-dev alacarte nfs-common libnl-3-dev gpsd gpsd-clients \
  hostapd-wpe conky conky-all lm-sensors hddtemp apt-transport-https \
- dconf-editor cifs-utils sublime-text forensics-extra crackmapexec \
+ dconf-editor cifs-utils sublime-text crackmapexec \
  gnome-system-monitor xfce4-screenshooter nautilus xfe wicd
 
 echo "\n\nDownloading some tools..."
@@ -182,7 +182,6 @@ echo "\nDownloading Password lists from my site...\n\n"
 mkdir ~/Tools/Wordlists && cd ~/Tools/Wordlists
 wget https://www.yosefkerzner.com/scripts/Wordlists/crackstation-human-only.txt.gz
 wget https://www.yosefkerzner.com/scripts/Wordlists/random_combined_wordlist.zip
-wget https://www.yosefkerzner.com/scripts/Wordlists/rockyou.zip
 
 # you could also get some more at https://hashes.org/crackers.php
 
@@ -192,13 +191,20 @@ cd ~/Tools/
 #git clone https://github.com/pentestgeek/smbexec.git
 # In Kali 2016.2 SMBExec install fails due to lack of esedbtools
 
-# Disable tracker miner fs
+if [ $XDG_CURRENT_DESKTOP = "GNOME" ]; then
 
-#cd ~
-#echo -e "\nHidden=true\n" | sudo tee --append /etc/xdg/autostart/tracker-extract.desktop /etc/xdg/autostart/tracker-miner-apps.desktop /etc/xdg/autostart/tracker-miner-fs.desktop /etc/xdg/autostart/tracker-miner-user-guides.desktop /etc/xdg/autostart/tracker-store.desktop > /dev/null
-#gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2  
-#gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false  
-#tracker reset --hard   
+        cd ~
+		echo -e "\nHidden=true\n" | sudo tee --append /etc/xdg/autostart/tracker-extract.desktop /etc/xdg/autostart/tracker-miner-apps.desktop /etc/xdg/autostart/tracker-miner-fs.desktop /etc/xdg/autostart/tracker-miner-user-guides.desktop /etc/xdg/autostart/tracker-store.desktop > /dev/null
+		gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2  
+		gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false  
+		tracker reset --hard
+        
+		# Disable window animations
+        settings set org.gnome.desktop.interface enable-animations false
+        
+        mkdir ~/.config/autostart
+fi
+ 
 
 cd ~/Tools/
 
@@ -215,14 +221,17 @@ git clone https://github.com/Veil-Framework/Veil-Evasion.git Veil/
 
 echo "\n\nPlease enter Client or Project Name: "
 read client
-cd ~/Documents/
-mkdir $client
-cd $client
-mkdir Wireless
-mkdir External && cd External && mkdir burpsuite && mkdir Nessus && mkdir Hacklog && cd ..
-mkdir Internal && cd Internal && mkdir Wireshark && mkdir wireless && mkdir nmap && mkdir nessus && mkdir EyeWitness && mkdir exploitation && cd ..
-mkdir SE
-cd ~
+if [ -n "$client" ]; then
+        cd ~/Documents/
+        mkdir $client
+        cd $client
+        mkdir Wireless
+        mkdir External && cd External && mkdir burpsuite && mkdir Nessus && mkd$
+        mkdir Internal && cd Internal && mkdir Wireshark && mkdir wireless && m$
+        mkdir Social_Engineering
+        cd ~
+fi
+
 
 echo "\n\nA few more tweaks..."
 
@@ -232,11 +241,7 @@ sed -i '/^#force_color_prompt=yes/s/^#//' ~/.bashrc && source ~/.bashrc
 # Use Alacarte to add "enable sound" as system service, if necessary, otherwise:
 systemctl --user enable pulseaudio
 
-# Disable window animations
-#settings set org.gnome.desktop.interface enable-animations false
-
 # Configure conky
-#mkdir ~/.config/autostart
 wget https://www.yosefkerzner.com/scripts/.conkyrc -O ~/.conkyrc
 # For Gnome
 echo -e "[Desktop Entry]\nType=Application\nName=conky\nExec=conky -d -b -p 15\nStartupNotify=false\nTerminal=false" > ~/.config/autostart/conky.desktop
@@ -282,4 +287,4 @@ Install Veil Evasion (try it from Kali repos instead of github), then reinstall 
 
 Install Empyre - to-do 
 
-version-05062018
+version-05302018
