@@ -404,3 +404,6 @@ echo "\nip link set $1 up"
 165     5825    5815–583
 
 sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other,nonempty
+
+sudo mount -t cifs //192.168.1.0/share /mnt/mountpoint/ -o user=,password=
+
