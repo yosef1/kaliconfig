@@ -402,3 +402,5 @@ echo "\nip link set $1 up"
 159     5795    5775–581
 161     5805    5795–581
 165     5825    5815–583
+
+sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other,nonempty
