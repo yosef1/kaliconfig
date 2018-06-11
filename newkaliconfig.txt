@@ -246,7 +246,10 @@ wget https://www.yosefkerzner.com/scripts/.conkyrc -O ~/.conkyrc
 # For Gnome
 echo -e "[Desktop Entry]\nType=Application\nName=conky\nExec=conky -d -b -p 15\nStartupNotify=false\nTerminal=false" > ~/.config/autostart/conky.desktop
 
-
+# "Disable" Weird session error issue in Kali VMs
+# https://unix.stackexchange.com/questions/273876/a-stop-job-is-running-for-session-c2-of-user
+sed -i 's#\#DefaultTimeoutStartSec=90s#DefaultTimeoutStartSec=10s#' /etc/systemd/system.conf
+sed -i 's#\#DefaultTimeoutStopSec=90s#DefaultTimeoutStopSec=10s#' /etc/systemd/system.conf
 
 echo "\n\nSome shortcuts..."
 
