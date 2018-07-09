@@ -407,3 +407,11 @@ sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other,nonempty
 
 sudo mount -t cifs //192.168.1.0/share /mnt/mountpoint/ -o user=,password=
 
+#recursively add file extension to all files
+Alternative command without an explicit loop (man find):
+
+find . -type f -exec mv '{}' '{}'.jpg \;
+Explanation: this recursively finds all files (-type f) starting from the current directory (.) and applies the move command (mv) to each of them. Note also the quotes around {}, so that filenames with spaces (and even newlines...) are properly handled.
+
+
+
