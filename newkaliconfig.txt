@@ -290,4 +290,8 @@ Install Veil Evasion (try it from Kali repos instead of github), then reinstall 
 
 Install Empyre - to-do 
 
-version-05302018
+
+https://askubuntu.com/questions/891859/xubuntu-snap-to-window-switching-workspaces
+
+version-08072018
+
