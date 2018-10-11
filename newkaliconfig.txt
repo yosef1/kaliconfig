@@ -140,6 +140,10 @@ echo "\nDownloading SecLists from Github...\n\n"
 
 git clone https://github.com/danielmiessler/SecLists.git SecLists/
 
+echo "\nDownloading more payloads from GIthub...\n\n"
+
+git clone https://github.com/swisskyrepo/PayloadsAllTheThings.git
+
 echo "\nDownloading Responder from Github...\n\n"
 
 git clone https://github.com/lgandx/Responder.git Responder/
