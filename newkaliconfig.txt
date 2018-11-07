@@ -43,6 +43,10 @@ e.g. /root/Tools/firefox/firefox
 	or
 	xset b off
 
+# Window Cycling - XFCE
+Window Manager Tweaks - Check "Cycle through windows in a list".
+Uncheck "Draw frame around windows while cycling"
+
 
 Nessus setup
 	Get it working perfectly, with everything downloaded. Then backup the whole /opt/nessus folder somewhere safe.
