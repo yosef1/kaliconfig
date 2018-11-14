@@ -600,3 +600,11 @@ nps_payload - payloads for basic intrusion detection avoidance - https://github.
 nmap --script ssh2-enum-algos -p22 1.1.1.1 -n -Pn
 #log msfconsole
 spool /root/.msf4/logs/console.log
+
+#signing is not required on the smb server
+
+nmap --script smb-security-mode.nse -p445 127.0.0.1
+sudo nmap -sU -sS --script smb-security-mode.nse -p U:137,T:139 127.0.0.1
+
+
+
