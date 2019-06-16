@@ -118,7 +118,6 @@ apt-get install libreoffice screen synaptic gedit htop strace nethogs \
 echo "\n\nDownloading some tools..."
 
 wget https://raw.githubusercontent.com/Meatballs1/NetXML-to-CSV/master/netxml_to_csv.py
-wget https://raw.githubusercontent.com/hak5darren/wp6/master/wp6.sh
 wget https://raw.githubusercontent.com/pan0pt1c0n/WAPMap/master/wap_mapper.py
 
 # GitHub section
